@@ -17,6 +17,22 @@ void preReverse(BinaryTreeNode *node){
 	preReverse(node->m_pRight);
 }
 
+void inReverse(BinaryTreeNode *node){
+	if (node == nullptr)
+		return;
+	inReverse(node->m_pLeft);
+	cout << node->m_nValue << endl;
+	inReverse(node->m_pRight);
+}
+
+void backReverse(BinaryTreeNode *node){
+	if (node == nullptr)
+		return;
+	backReverse(node->m_pLeft);
+	backReverse(node->m_pRight);
+	cout << node->m_nValue << endl;
+}
+
 void create(BinaryTreeNode* &node){
 	char value;
 	cin >> value;
@@ -36,4 +52,6 @@ int main(){
 	BinaryTreeNode *node = new BinaryTreeNode();
 	create(node);
 	preReverse(node);
+	inReverse(node);
+	backReverse(node);
 }
