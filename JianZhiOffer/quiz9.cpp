@@ -15,12 +15,12 @@ public:
 };
 
 template<typename type>
-void Queue::appendTail(type add){
+void Queue<type>::appendTail(type add){
 	st1.push(add);
 }
 
 template<typename type>
-type Queue::deleteHead(){
+type Queue<type>::deleteHead(){
 	if (st1.empty())
 		throw new std::exception("queue is empty.");
 	while (!st1.empty())
