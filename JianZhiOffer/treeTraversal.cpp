@@ -9,27 +9,27 @@ struct BinaryTreeNode{
 	BinaryTreeNode* m_pRight;
 };
 
-void preReverse(BinaryTreeNode *node){
+void preTraversal(BinaryTreeNode *node){
 	if (node == nullptr)
 		return;
-	cout << node->m_nValue << endl;
-	preReverse(node->m_pLeft);
-	preReverse(node->m_pRight);
+	cout << node->m_nValue << endl; // it's the core process to do anything. 
+	preTraversal(node->m_pLeft);
+	preTraversal(node->m_pRight);
 }
 
-void inReverse(BinaryTreeNode *node){
+void inTraversal(BinaryTreeNode *node){
 	if (node == nullptr)
 		return;
-	inReverse(node->m_pLeft);
+	inTraversal(node->m_pLeft);
 	cout << node->m_nValue << endl;
-	inReverse(node->m_pRight);
+	inTraversal(node->m_pRight);
 }
 
-void backReverse(BinaryTreeNode *node){
+void backTraversal(BinaryTreeNode *node){
 	if (node == nullptr)
 		return;
-	backReverse(node->m_pLeft);
-	backReverse(node->m_pRight);
+	backTraversal(node->m_pLeft);
+	backTraversal(node->m_pRight);
 	cout << node->m_nValue << endl;
 }
 
@@ -51,7 +51,7 @@ void create(BinaryTreeNode* &node){
 int main(){
 	BinaryTreeNode *node = new BinaryTreeNode();
 	create(node);
-	preReverse(node);
-	inReverse(node);
-	backReverse(node);
+	preTraversal(node);
+	inTraversal(node);
+	backTraversal(node);
 }
