@@ -38,5 +38,8 @@ type Queue::deleteHead(){
 }
 
 int main(){
-
+	Queue<int> q;
+	q.appendTail(1);
+	q.appendTail(2);
+	q.deleteHead();
 }
