@@ -21,7 +21,7 @@ void create(TreeNode* &node){
 		create(node->m_pLeft);
 		if (node->m_pLeft)
 			node->m_pLeft->m_pParent = node;
-		create(node->m_pRight); // is same to pre reverse
+		create(node->m_pRight); // is same to pre traverse
 		if (node->m_pRight)
 			node->m_pRight->m_pParent = node;
 	}
@@ -29,6 +29,8 @@ void create(TreeNode* &node){
 }
 
 TreeNode* findNextNode(TreeNode *node){
+	if(node == nullptr)
+		return nullptr;
 	if (!node->m_pLeft && !node->m_pRight){
 		if (node == node->m_pParent->m_pLeft){
 			return node->m_pParent;
@@ -45,11 +47,12 @@ TreeNode* findNextNode(TreeNode *node){
 				return nullptr;
 		}
 	}
-	else if (node->m_pRight->m_pLeft){
-		return node->m_pRight->m_pLeft;
+	else if (node->m_pRight != nullptr){
+		TreeNode* next = node->m_pRight;
+		while (!next->m_pLeft)//
+			next = next->m_pLeft;
+		return next;
 	}
-	else if (!node->m_pRight->m_pLeft)
-		return node->m_pRight;
 }
 
 int main(){
