@@ -4,12 +4,11 @@
 
 using namespace std;
 
-int count = 0;
 int rowM = 0;
 int colM = 0;
 
 bool check(vector<char> strM, int row, int col, string str, int index, vector<bool> useFlag){
-	if (row < 0 || row > rowM - 1 || col < 0 || col > colM - 1 || useFlag[row*col+col])
+	if (row < 0 || row > rowM - 1 || col < 0 || col > colM - 1 || useFlag[row*colM+col])
 		return false;
 	if (index == str.length()) //must have a sentence return true
 		return true;
