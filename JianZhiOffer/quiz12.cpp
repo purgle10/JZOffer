@@ -11,7 +11,7 @@ int colM = 0;
 bool check(vector<char> strM, int row, int col, string str, int index, vector<bool> useFlag){
 	if (row < 0 || row > rowM - 1 || col < 0 || col > colM - 1 || useFlag[row*col+col])
 		return false;
-	if (index == str.length())
+	if (index == str.length()) //must have a sentence return true
 		return true;
 	useFlag[row*col + col] = true;
 	if (str[index] != strM[row*colM + col]) //colM instead of col
