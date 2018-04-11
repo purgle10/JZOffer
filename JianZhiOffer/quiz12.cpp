@@ -29,6 +29,10 @@ int main(){
 	//int row, col;
 	vector<char> strMatrix;
 	cin >> rowM >> colM;
+
+	if (rowM <= 0 || colM <= 0)
+		return 0;
+
 	for (int i = 0; i < rowM*colM; ++i){
 		char input;
 		cin >> input;
