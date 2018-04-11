@@ -1,7 +1,18 @@
 #include<iostream>
 #include<vector>
+#include<limits.h>
 
 using namespace std;
+
+int findMin(vector<int> arr){
+	int minV = INT_MAX;
+	int size = arr.size();
+	for (int i = 0; i < size - 1; ++i){
+		if (minV > arr[i])
+			minV = arr[i];
+	}
+	return minV;
+}
 
 int rotateArrayMinValue(vector<int> arr){
 	int size = arr.size();
@@ -10,11 +21,17 @@ int rotateArrayMinValue(vector<int> arr){
 	int index = left;
 	if (arr[left] < arr[right])
 		return arr[left];
-	while (left<right){
+	else if (arr[left] == arr[right])
+		return findMin(arr);
+	while (left<=right){
 		index = (right + left) / 2;
 		if (arr[index]>arr[left])
-			left = index + 1;
+			left = index;
 		else if (arr[index] < arr[right])
+			right = index;
+		else if (arr[index] == arr[left])
+			left = index + 1;
+		else if (arr[index] == arr[right])
 			right = index - 1;
 	}
 	return arr[index];
