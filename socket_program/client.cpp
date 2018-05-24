@@ -1,3 +1,4 @@
+// a small program for learning socker program in windows
 #include<WinSock2.h>
 #include<stdio.h>
 #include<iostream>
